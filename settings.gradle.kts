@@ -1,0 +1,3 @@
+
+rootProject.name = "mob2"
+
