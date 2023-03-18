@@ -1,5 +1,6 @@
 interface Tecnology {
-    fun doBolt(billet: Billet) //создать болт
-    fun doGaika(billet: Billet) //создать гайку
-    fun doKrepeg(billet: Billet) //создать крепеж
+    fun doBillet()//создать заготовку
+    fun doBolt() //создать болт
+    fun doGaika() //создать гайку
+    fun doKrepeg() //создать крепеж
 }
