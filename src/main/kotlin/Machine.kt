@@ -2,10 +2,7 @@
 class Machine : Tecnology {
     override fun doBillet() {
         val billet= Billet()
-        println("---------------------------------")
-        println("Заготовка сделана")
         billet.inform()
-        println("---------------------------------")
     }
 
     //здесь то, что по технологии должна способна сделать модель станка
@@ -14,10 +11,8 @@ class Machine : Tecnology {
         frezirovanie(billet)
         rezba(billet)
         shlofovanie(billet)
-        println("---------------------------------")
-        println("Болт сделан")
+        billet.name="Болт"
         billet.inform()
-        println("---------------------------------")
     }
 
     override fun doGaika() {
@@ -26,10 +21,8 @@ class Machine : Tecnology {
         frezirovanie(billet)
         rezba(billet)
         shlofovanie(billet)
-        println("---------------------------------")
-        println("Гайка сделана")
+        billet.name="Гайка"
         billet.inform()
-        println("---------------------------------")
     }
 
     override fun doKrepeg() {
@@ -39,10 +32,8 @@ class Machine : Tecnology {
             sverlenie(billet)
         }
         shlofovanie(billet)
-        println("---------------------------------")
-        println("Крепеж сделан")
+        billet.name="Крепеж"
         billet.inform()
-        println("---------------------------------")
     }
 
 //тут идут далее функции самого (конкретно этого) станка
