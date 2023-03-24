@@ -1,6 +1,10 @@
 interface Tecnology {
-    fun doBillet()//создать заготовку
-    fun doBolt() //создать болт
-    fun doGaika() //создать гайку
-    fun doKrepeg() //создать крепеж
+    fun newBillet() //обновить деталь
+    fun sverlenie()
+    fun frezirovanie()
+    fun rezba(left: Boolean = true)
+    fun shlofovanie()
+    fun getBillet(): Billet
+    fun renameBillet(name:String)
+
 }

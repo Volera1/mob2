@@ -1,53 +1,22 @@
 
 class Machine : Tecnology {
-    override fun doBillet() {
-        val billet= Billet()
-        billet.inform()
+    var billet = Billet()
+    override fun newBillet() {
+        billet = Billet()
     }
 
-    //здесь то, что по технологии должна способна сделать модель станка
-    override fun doBolt() {
-        val billet = Billet()
-        frezirovanie(billet)
-        rezba(billet)
-        shlofovanie(billet)
-        billet.name="Болт"
-        billet.inform()
-    }
-
-    override fun doGaika() {
-        val billet = Billet()
-        sverlenie(billet)
-        frezirovanie(billet)
-        rezba(billet)
-        shlofovanie(billet)
-        billet.name="Гайка"
-        billet.inform()
-    }
-
-    override fun doKrepeg() {
-        val billet = Billet()
-        frezirovanie(billet)
-        for (i in 1..4){
-            sverlenie(billet)
-        }
-        shlofovanie(billet)
-        billet.name="Крепеж"
-        billet.inform()
-    }
-
-//тут идут далее функции самого (конкретно этого) станка
-    fun sverlenie(billet: Billet) {
+    //тут идут далее функции самого (конкретно этого) станка
+    override fun sverlenie() {
         billet.countOfHole+=1
         billet.shlofovana = false
         println("В детали просверлено отверстие")
     }
-    fun frezirovanie(billet: Billet){
+    override fun frezirovanie(){
         billet.form = true
         billet.shlofovana=false
         println("Деталь отфрезирована, теперь имеет форму")
     }
-    fun rezba(billet: Billet,left: Boolean =true){ //по умолчанию левая (наиболее популярная), резьба не влияет на шлифовку
+    override fun rezba(left: Boolean){ //по умолчанию левая (наиболее популярная), резьба не влияет на шлифовку
         when (left) {
             true -> {
                 billet.countOfLeftRezba+=1
@@ -59,7 +28,7 @@ class Machine : Tecnology {
             }
         }
     }
-    fun shlofovanie(billet: Billet){
+    override fun shlofovanie(){
         if (billet.shlofovana) {
             println("Деталь уже отшлифована")
         }
@@ -67,5 +36,13 @@ class Machine : Tecnology {
             billet.shlofovana=true
             println("Деталь отшлифована")
         }
+    }
+
+    override fun getBillet(): Billet {
+        return billet
+    }
+
+    override fun renameBillet(name:String) {
+        billet.name=name
     }
 }
