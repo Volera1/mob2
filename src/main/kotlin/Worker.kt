@@ -6,6 +6,7 @@ class Worker {
         println("2. Сделать болт")
         println("3. Сделать гайку")
         println("4. Сделать крепеж")
+        println("5. Поменять станок (Текущий: "+machine.javaClass.kotlin.java.simpleName+")")
         println("Любое значение. Выход")
 
         when(readLine()) {
@@ -17,7 +18,10 @@ class Worker {
 
             4.toString() -> doKrepeg()
 
-            else-> return
+            5.toString() -> {
+                changeTecnology(if (machine.javaClass.kotlin.java.simpleName == "Machine")  MachineAn() else Machine())
+            }
+    else-> return
         }
         go()
     }
@@ -51,5 +55,9 @@ class Worker {
         machine.shlofovanie()
         machine.renameBillet("Крепеж")
         machine.getBillet().inform()
+    }
+
+    fun changeTecnology(tech:Tecnology) {
+        machine = tech
     }
 }
