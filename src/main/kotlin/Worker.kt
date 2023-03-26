@@ -22,32 +22,34 @@ class Worker {
         go()
     }
     fun doBillet() {
-        val billet= Billet()
-        billet.inform()
+        machine.newBillet()
+        machine.getBillet().inform()
     }
     fun doBolt() {
+        machine.newBillet()
         machine.frezirovanie()
         machine.rezba()
         machine.shlofovanie()
-        //billet.name="Болт"
+        machine.renameBillet("Болт")
         machine.getBillet().inform()
     }
     fun doGaika() {
+        machine.newBillet()
         machine.sverlenie()
-        frezirovanie(billet)
-        rezba(billet)
-        shlofovanie(billet)
-        //billet.name="Гайка"
-        billet.inform()
+        machine.frezirovanie()
+        machine.rezba()
+        machine.shlofovanie()
+        machine.renameBillet("Гайка")
+        machine.getBillet().inform()
     }
     fun doKrepeg() {
-        val billet = Billet()
-        frezirovanie(billet)
+        machine.newBillet()
+        machine.frezirovanie()
         for (i in 1..4){
-            sverlenie(billet)
+            machine.sverlenie()
         }
-        shlofovanie(billet)
-        //billet.name="Крепеж"
-        billet.inform()
+        machine.shlofovanie()
+        machine.renameBillet("Крепеж")
+        machine.getBillet().inform()
     }
 }

@@ -1,6 +1,6 @@
 
 class Machine : Tecnology {
-    var billet = Billet()
+    private var billet = Billet()
     override fun newBillet() {
         billet = Billet()
     }
