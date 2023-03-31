@@ -1,10 +1,10 @@
-interface Tecnology {
-    fun newBillet() //обновить деталь
-    fun sverlenie()
-    fun frezirovanie()
-    fun rezba(left: Boolean = true)
-    fun shlofovanie()
-    fun getBillet(): Billet
-    fun renameBillet(name:String)
+abstract class Tecnology {
+    abstract fun newBillet() //обновить деталь
+    abstract fun sverlenie()
+    abstract fun frezirovanie()
+    abstract fun rezba(left: Boolean = true)
+    abstract fun shlofovanie()
+    abstract fun getBillet(): Billet
+    abstract fun renameBillet(name:String)
 
 }
